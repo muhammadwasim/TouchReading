@@ -1,0 +1,87 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+ 
+<suite name="Regression" verbose="1" >
+	  
+	  
+	  <test name="LoginTestSuite">
+	    <classes>
+	       <class name="Web.LoginSuite" />
+	    </classes>
+	  </test>
+  
+	  
+	  
+	  
+	  <test name="SignUpTestSuite">
+	    <classes>
+	       <class name="Web.SignUpSuite" />
+	    </classes>
+	  </test>
+	  
+	  
+	  
+	  <test name="BookViewTestSuite">
+	    <classes>
+	       <class name="Web.BookViewSuite" />
+	    </classes>
+	  </test>
+	  
+	  
+	  
+	  <test name="PurchasePackageCreateTestSuite">
+	    <classes>
+	       <class name="Web.PurchasePackageCreateSuite" />
+	    </classes>
+	  </test>
+	  
+	  
+	  
+	  <test name="PurchasePackageDeleteTestSuite">
+	    <classes>
+	       <class name="Web.PurchasePackageDeleteSuite" />
+	    </classes>
+	  </test>
+	  
+	  
+	  
+	  <test name="BookCreateTestSuite">
+	    <classes>
+	       <class name="Web.BookCreateSuite" />
+	    </classes>
+	  </test>
+	  
+	  
+	  <test name="SearchTestSuite">
+	    <classes>
+	       <class name="Web.SearchSuite" />
+	    </classes>
+	  </test>
+	  
+	  
+	  <!-- Touch Page View Action -->
+	  <test name="TouchPageView">
+	    <classes>
+	       <class name="Web.TouchPageViewSuite" />
+	    </classes>
+	  </test>	
+	    
+	    
+	  <!-- Touch Page Create Action -->
+	  <test name="TouchPageCreate">
+	    <classes>
+	       <class name="Web.TouchPageCreateSuite" />
+	    </classes>
+	  </test>
+	  
+	  
+	  <!-- Touch Page Edit/Delete Action -->
+	  <test name="TouchPageEdit">
+	    <classes>
+	       <class name="Web.TouchPageEditDeleteSuite" />
+	    </classes>
+	  </test>
+
+	  
+</suite>
+
+ 
