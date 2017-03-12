@@ -1,11 +1,29 @@
 package appModules;
 
 import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class PageActions {
+	
+	
+		// Open Specific Book to add pages in it:
+		public static void openBookToAddPages (WebDriver driver) throws InterruptedException{
+		List<WebElement> findBook = driver.findElements(By.xpath("/html/body/div[2]/div[1]/div/div[2]/div[2]/table/tbody/tr/td[2]/a"));
+	    Thread.sleep(5000);
+	        for(int i=0;i<findBook.size();i++){
+	             if(findBook.get(i).getText().equals("All Types")){  
+	        	 findBook.get(i).click();
+	           	//break;
+	            }
+	        }
+	        
+		}
+		
+	
+	
 	
 		//Touch Page Edit Action:
 		public static void EditAction (WebDriver driver) throws InterruptedException{

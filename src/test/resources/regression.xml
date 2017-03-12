@@ -9,8 +9,57 @@
 	    </classes>
 	 </test>
 	  
+	  
+	  
+ <test name="ForgotPasswordTestSuite">
+	    <classes>
+	       <class name="Web.ForgotPasswordSuite" />
+	    </classes>
+	  </test>
 	
 	
+	  
+	  
+	  <test name="LoginTestSuite">
+	    <classes>
+	       <class name="Web.LoginSuite" />
+	    </classes>
+	  </test>
+  
+
+	  
+	  
+	  <test name="BookCreationTestSuite">
+	    <classes>
+	       <class name="Web.BookCreate" />
+	    </classes>
+	  </test>
+
+	  
+	  
+	  
+	  <test name="BookViewTestSuite">
+	    <classes>
+	       <class name="Web.BookView" />
+	    </classes>
+	  </test>
+	  
+	  
+	  
+	  <test name="BookUpdateAndDeleteTestSuite">
+	    <classes>
+	       <class name="Web.BookUpdateAndDelete" />
+	    </classes>
+	  </test>
+
+
+	
+	
+	  <test name="PageCreationTestSuite">
+	    <classes>
+	       <class name="Web.PageCreate" />
+	    </classes>
+	  </test>
 	
 	
 	  

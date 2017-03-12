@@ -13,7 +13,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class PackageDeletion {
+public class PackageView {
 	
 	  private WebDriver driver;
 	  private String baseUrl;	  //private boolean acceptNextAlert = true;8
