@@ -11,7 +11,7 @@
 	  
 	  
 	  
- <test name="ForgotPasswordTestSuite">
+ 	<test name="ForgotPasswordTestSuite">
 	    <classes>
 	       <class name="Web.ForgotPasswordSuite" />
 	    </classes>
@@ -19,8 +19,7 @@
 	
 	
 	  
-	  
-	  <test name="LoginTestSuite">
+	 <test name="LoginTestSuite">
 	    <classes>
 	       <class name="Web.LoginSuite" />
 	    </classes>
@@ -60,6 +59,7 @@
 	       <class name="Web.PageCreate" />
 	    </classes>
 	  </test>
+	
 	
 	
 	  
