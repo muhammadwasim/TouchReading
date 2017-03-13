@@ -28,7 +28,7 @@ public class PageCreate {
 	  public void setUp() throws Exception {
      	  Base.Gecko_Driver();
 		  driver = new FirefoxDriver();
-     	  Base.getUrl();    	
+     	  Base.getBaseUrl();    	
      	  driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	  }
 	  
@@ -44,7 +44,7 @@ public class PageCreate {
 	  // Test 1 (smoke test): verify the 'Add New Page' link is working 
 	  @Test 
 	  public void VerifyCreatePageLinkIsWorking() throws Exception {
-	    driver.get(Base.baseUrl + "/?_rdr");
+		    driver.get(Base.getBaseUrl());
 		    LoginActions.login_function(driver);
 		    PageActions.openBookToAddPages(driver);
 		    Thread.sleep(3000);
@@ -57,7 +57,7 @@ public class PageCreate {
 	  // Test 2 (smoke test): verify create new page feature is working 
 	  @Test (dependsOnMethods = {"VerifyCreatePageLinkIsWorking"},alwaysRun = true)
 	  public void CreatePageWithPositiveData() throws Exception {		  
-		    driver.get(Base.dashboardUrl);
+		    driver.get(Base.getDashboardUrl());
 		    Thread.sleep(3000);
 		    PageActions.openBookToAddPages(driver);
 		    Thread.sleep(3000);
@@ -77,7 +77,7 @@ public class PageCreate {
 	  // Test3: Create page if all field are empty
 	  @Test (dependsOnMethods = {"CreatePageWithPositiveData"},alwaysRun = true)
 	  public void CreatePageWithEmptyData() throws Exception {
-		  	driver.get(Base.dashboardUrl);
+		  	driver.get(Base.getDashboardUrl());
 		    Thread.sleep(5000);
 		    PageActions.openBookToAddPages(driver);
 		    Page.addNewPage(driver);
@@ -90,7 +90,7 @@ public class PageCreate {
 	  // Test 4: Create text only page type. It will not contain word audio and page audio. 
 	  @Test (dependsOnMethods = {"CreatePageWithEmptyData"},alwaysRun = true)
 	  public void CreateOnlyTextPageWithOnlyPageText() throws Exception {
-		  	driver.get(Base.dashboardUrl);
+		  	driver.get(Base.getDashboardUrl());
 		    Thread.sleep(3000);
 		    PageActions.openBookToAddPages(driver);
 		    Page.addNewPage(driver).click();		   
@@ -110,7 +110,7 @@ public class PageCreate {
 	  // Test 5: Create text only page type. This page will contain "page text and "page audio". Excluding word audio. 
 	  @Test (dependsOnMethods = {"CreateOnlyTextPageWithOnlyPageText"},alwaysRun = true)
 	  public void CreateOnlyTextPageIncludingPageAudio() throws Exception {
-	    driver.get(Base.dashboardUrl);
+	    driver.get(Base.getDashboardUrl());
 	    	Thread.sleep(3000);
 	    	PageActions.openBookToAddPages(driver);
 		    Page.addNewPage(driver).click();
@@ -132,7 +132,7 @@ public class PageCreate {
 	  // Test 6: Create ONLY TEXT page. This page will contain page text, page audio and words audio. 
 	  @Test (dependsOnMethods = {"CreateOnlyTextPageIncludingPageAudio"},alwaysRun = true)
 	  public void CreateOnlyTextPageWithPageAndWordAudio() throws Exception {
-	    driver.get(Base.dashboardUrl);
+	    driver.get(Base.getDashboardUrl());
 		    Thread.sleep(3000);
 		    PageActions.openBookToAddPages(driver);
 		    Page.addNewPage(driver).click();		    
@@ -154,7 +154,7 @@ public class PageCreate {
 	  // Test 7: Create Audio Page 
 	  @Test (dependsOnMethods = {"CreateOnlyTextPageIncludingPageAudio"},alwaysRun = true)
 	  public void CreateAudioPage() throws Exception {
-	    driver.get(Base.dashboardUrl);
+	    driver.get(Base.getDashboardUrl());
 		    Thread.sleep(3000);
 		    PageActions.openBookToAddPages(driver);
 		    Page.addNewPage(driver).click();		    
@@ -174,7 +174,7 @@ public class PageCreate {
 	  // Test 8: Create ONLY IMAGE page. This page will not contain page audio 
 	  @Test (dependsOnMethods = {"CreateAudioPage"},alwaysRun = true)
 	  public void CreateOnlyImagePageWithoutAudio() throws Exception {
-	    driver.get(Base.dashboardUrl);
+	    driver.get(Base.getDashboardUrl());
 		    Thread.sleep(3000);
 		    PageActions.openBookToAddPages(driver);
 		    Page.addNewPage(driver).click();		    
@@ -196,7 +196,7 @@ public class PageCreate {
 	  // Test 9: Create ONLY IMAGE page. This page will contain Page Image + Page Audio 
 	  @Test (dependsOnMethods = {"CreateAudioPage"},alwaysRun = true)
 	  public void CreateOnlyImagePageWithPageAudio() throws Exception {
-	    driver.get(Base.dashboardUrl);
+	    driver.get(Base.getDashboardUrl());
 		    Thread.sleep(3000);
 		    PageActions.openBookToAddPages(driver);
 		    Page.addNewPage(driver).click();		    

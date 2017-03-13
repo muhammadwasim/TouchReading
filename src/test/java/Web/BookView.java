@@ -20,7 +20,7 @@ public class BookView {
 	  public void setUp() throws Exception {
 			Base.Gecko_Driver();
 	     	driver = new FirefoxDriver();
-		    Base.getUrl();
+		    Base.getBaseUrl();
 		    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	 
 	  }
@@ -43,7 +43,7 @@ public class BookView {
 	  // Test 1 (smoke): Verify that the link is working
 	  @Test 
 	  public void VerifyBookListViewPageIsAvailable() throws Exception {
-		    driver.get(Base.baseUrl + "/?_rdr");
+		    driver.get(Base.getBaseUrl());
 	    	LoginActions.login_function(driver);
 	    
 	   	  }
@@ -54,7 +54,7 @@ public class BookView {
 	  // Test 2: Verify the user is able to open the book using Book Title link
 	  @Test (dependsOnMethods = {"VerifyBookListViewPageIsAvailable"}, alwaysRun = true)
 	  public void OpenBookOnClickingBookTitle() throws Exception {
-		    driver.get(Base.baseUrl);
+		    driver.get(Base.getBaseUrl());
 		    Thread.sleep(5000);
 		    Book.bookTitle(driver).click();
 		    Thread.sleep(5000);
@@ -66,7 +66,7 @@ public class BookView {
 	  // Test 3: Verify the use is able to open a book using Cover Image Link
 	  @Test (dependsOnMethods = {"VerifyBookListViewPageIsAvailable"}, alwaysRun = true)
 	  public void OpenBookOnClickingCoverImage() throws Exception {
-		    driver.get(Base.baseUrl);
+		    driver.get(Base.getBaseUrl());
 		    Thread.sleep(5000);
 		    Book.bookCoverImage(driver).click();
 		    Thread.sleep(5000);
@@ -78,7 +78,7 @@ public class BookView {
 	  // Test 4: Verify pages link in book list view is working
 	  @Test (dependsOnMethods = {"VerifyBookListViewPageIsAvailable"}, alwaysRun = true)
 	  public void VerifyPagesLinkIsWorking() throws Exception {
-		    driver.get(Base.baseUrl);
+		    driver.get(Base.getBaseUrl());
 		    Thread.sleep(5000);
 		    Book.bookPages(driver).click();
 		    Thread.sleep(5000);
@@ -90,7 +90,7 @@ public class BookView {
 	  // Test 5: Verify edit book link in book list view is working
 	  @Test (dependsOnMethods = {"VerifyBookListViewPageIsAvailable"}, alwaysRun = true)
 	  public void VerifyEditBookLinkIsWorking() throws Exception {
-		    driver.get(Base.baseUrl);
+		    driver.get(Base.getBaseUrl());
 		    Thread.sleep(5000);
 		    Book.bookEdit(driver).click();
 		    Thread.sleep(5000);
@@ -102,7 +102,7 @@ public class BookView {
 	  // Test 6: Verify Preview Book link in book list view is working
 	  @Test (dependsOnMethods = {"VerifyBookListViewPageIsAvailable"}, alwaysRun = true)
 	  public void VerifyPreviewBookLinkIsWorking() throws Exception {
-		    driver.get(Base.baseUrl);
+		    driver.get(Base.getBaseUrl());
 		    Thread.sleep(5000);
 		    Book.bookPreview(driver).click();
 		    Thread.sleep(5000);
@@ -115,7 +115,7 @@ public class BookView {
 	  // Test 8: Verify Book Delete link is book list view is working
 	  @Test (dependsOnMethods = {"VerifyBookListViewPageIsAvailable"}, alwaysRun = true)
 	  public void VerifyDeleteBookLinkIsWorking() throws Exception {
-		    driver.get(Base.baseUrl);
+		    driver.get(Base.getBaseUrl());
 		    Thread.sleep(5000);
 		    Book.bookPages(driver).click();
 		    Thread.sleep(5000);

@@ -29,7 +29,7 @@ public class ForgotPasswordSuite {
 	  public void setUp() throws Exception {
      	  Base.Gecko_Driver();
 		  driver = new FirefoxDriver();
-     	  Base.getUrl();    	
+     	  Base.getBaseUrl();    	
      	  driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	  }
 	  
@@ -45,7 +45,7 @@ public class ForgotPasswordSuite {
 	  // Test 1 (smoke test): verify the 'Forgot password' link is working 
 	  @Test 
 	  public void VerifyForgotPasswordLinkIsWorking() throws Exception {
-	    driver.get(Base.baseUrl + "/?_rdr");
+	    driver.get(Base.getBaseUrl());
 	    ForgotPassword.forgotPasswordLink(driver).click();
 	    Thread.sleep(5000);
 	   	
@@ -54,7 +54,7 @@ public class ForgotPasswordSuite {
 	  // Test 2 (smoke test): 
 	  @Test (dependsOnMethods = {"VerifyForgotPasswordLinkIsWorking"},alwaysRun = true)
 	  public void VerifyResetPasswordFeature() throws Exception {
-	    driver.get(Base.baseUrl + "/?_rdr");
+		driver.get(Base.getBaseUrl());
 	    ForgotPassword.forgotPasswordLink(driver).click();
 	    ForgotPassword.forgotPasswordField(driver).sendKeys("t09066292+u1@gmail.com");
 	    ForgotPassword.restPasswordBtn(driver).click();	    
@@ -65,7 +65,7 @@ public class ForgotPasswordSuite {
 	  // Test 3: Verify mandatory field validation
 	  @Test (dependsOnMethods = {"VerifyResetPasswordFeature"},alwaysRun = true)
 	  public void VerifyMandatoryFieldValidation() throws Exception {
-	    driver.get(Base.baseUrl + "/?_rdr");
+		driver.get(Base.getBaseUrl());
 	    ForgotPassword.forgotPasswordLink(driver).click();
 	    ForgotPassword.restPasswordBtn(driver).click();	
 	    Thread.sleep(5000);
@@ -75,7 +75,7 @@ public class ForgotPasswordSuite {
 	  // Test 4: Verify user receives email and given link is working
 	  @Test (dependsOnMethods = {"VerifyMandatoryFieldValidation"},alwaysRun = true)
 	  public void VerifyEmailReceivesAndLinkWorks () throws Exception {
-	    driver.get(Base.baseUrl + "/?_rdr");
+		driver.get(Base.getBaseUrl());
 	    ForgotPassword.forgotPasswordLink(driver).click();
 	    ForgotPassword.restPasswordBtn(driver).click();	
 	    Thread.sleep(5000);

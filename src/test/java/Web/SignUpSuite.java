@@ -24,22 +24,22 @@ public class SignUpSuite {
 		  public void setUp() throws Exception {
 			  Base.Gecko_Driver();
 	     	  driver = new FirefoxDriver();
-	     	  Base.getUrl();
+	     	  Base.getBaseUrl();
 		    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		  }
 		  
 		  
-		  /*
+		  
 		  @AfterTest(alwaysRun = true)
 		  public void tearDown() throws Exception {
 		      driver.quit();	 
-		  }*/
+		  }
 		  
 		  
 		  // Test 1 (smoke test): Verify SignUp link is working
 		  @Test
 		  public void VerifySignUpLink() throws Exception {
-	        driver.get(Base.baseUrl + "/?_rdr");
+			driver.get(Base.getBaseUrl());
 	        SignUp.signUpLink(driver).click();
 		   	  
 		  }
@@ -48,7 +48,7 @@ public class SignUpSuite {
 		  //Test 2: Verify user with user_role can be created
 		  @Test (dependsOnMethods = { "VerifySignUpLink" },alwaysRun = true)
 		  public void CreateUserAccount() throws Exception {
-		    driver.get(Base.baseUrl + "/?_rdr");			
+			driver.get(Base.getBaseUrl());			
 		    SignUp.signUpLink(driver).click();		   
 		    SignUp.username(driver).clear();
 		    SignUp.username(driver).sendKeys("t09066292+u1@gmail.com");
@@ -68,7 +68,7 @@ public class SignUpSuite {
 		  //Test 3: Verify user with Author_role can be created
 		  @Test (dependsOnMethods = { "VerifySignUpLink" },alwaysRun = true)
 		  public void CreateAuthorAccount() throws Exception {
-		    driver.get(Base.baseUrl + "/?_rdr");
+		    driver.get(Base.getBaseUrl());
 		    SignUp.signUpLink(driver).click();		   
 		    SignUp.username(driver).clear();
 		    SignUp.username(driver).sendKeys("t09066292+a1@gmail.com");
@@ -89,7 +89,7 @@ public class SignUpSuite {
 		  //Test 4: Verify user with publisher_role can be created
 		  @Test (dependsOnMethods = { "VerifySignUpLink" },alwaysRun = true)
 		  public void CreatePublisherAccount() throws Exception {
-		    driver.get(Base.baseUrl + "/?_rdr");
+		    driver.get(Base.getBaseUrl());
 		    SignUp.signUpLink(driver).click();		   
 		    SignUp.username(driver).clear();
 		    SignUp.username(driver).sendKeys("t09066292+p1@gmail.com");
@@ -110,7 +110,7 @@ public class SignUpSuite {
 		  //Test 5: Verify mandatory field validation
 		  @Test (dependsOnMethods = { "VerifySignUpLink" },alwaysRun = true)
 		  public void CreateSignUpWithEmptyFields() throws Exception {
-			driver.get(Base.baseUrl + "/?_rdr");
+			driver.get(Base.getBaseUrl());
 			SignUp.btnCommit(driver).click();
 	
 	   	  }
@@ -119,7 +119,7 @@ public class SignUpSuite {
 		  //Test 6: Verify email field cannot be blank
 		  @Test (dependsOnMethods = { "CreateSignUpWithEmptyFields" },alwaysRun = true)
 		  public void VerifyEmailFieldCannotBeEmpty() throws Exception {
-		    driver.get(Base.baseUrl + "/?_rdr");
+			driver.get(Base.getBaseUrl());
 		    SignUp.signUpLink(driver).click();		   		    
 		    SignUp.password(driver).clear();
 		    SignUp.password(driver).sendKeys("arkhitech");
@@ -141,7 +141,7 @@ public class SignUpSuite {
 		  //Test 7: Verify password filed cannot be empty
 		  @Test (dependsOnMethods = { "CreateSignUpWithEmptyFields" },alwaysRun = true)
 		  public void VerifyPasswordFieldCannotBeEmpty() throws Exception {
-		    driver.get(Base.baseUrl + "/?_rdr");
+			driver.get(Base.getBaseUrl());
 		    SignUp.signUpLink(driver).click();		   
 		    SignUp.username(driver).clear();
 		    SignUp.username(driver).sendKeys("t09066292+p1@gmail.com");
@@ -163,7 +163,7 @@ public class SignUpSuite {
 		  //Test 8: Verify password format
 		  @Test (dependsOnMethods = { "CreateSignUpWithEmptyFields" },alwaysRun = true)
 		  public void VerifyPasswordCharacterLength() throws Exception {
-		    driver.get(Base.baseUrl + "/?_rdr");
+			driver.get(Base.getBaseUrl());
 		    SignUp.signUpLink(driver).click();		   
 		    SignUp.username(driver).clear();
 		    SignUp.username(driver).sendKeys("t09066292+p1@gmail.com");
@@ -187,7 +187,7 @@ public class SignUpSuite {
 		  //Test 9: Verify confirm password field validation is working
 		  @Test (dependsOnMethods = { "VerifySignUpLink" },alwaysRun = true)
 		  public void VerifyConfirmPasswordFieldValidation() throws Exception {
-		    driver.get(Base.baseUrl + "/?_rdr");
+			driver.get(Base.getBaseUrl());
 		    SignUp.signUpLink(driver).click();		   
 		    SignUp.username(driver).clear();
 		    SignUp.username(driver).sendKeys("t09066292+p1@gmail.com");

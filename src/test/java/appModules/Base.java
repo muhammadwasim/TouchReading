@@ -9,19 +9,32 @@ public class Base {
   
 	
 	 
-	  public static String baseUrl;	  
-	  public static String dashboardUrl;
-	  public static String newBook;
-	  public static WebDriver driver;
+	 // public static String baseUrl;	
+	  private static  String baseUrl = "https://app.touchreading.pk/";
+	  private static String dashboardUrl = "https://app.touchreading.pk/";
+	  private static String newBook = "https://app.touchreading.pk/touch_books/new";
+	  private static WebDriver driver;
+	  
 	  
 	  // Get baseUrl
-	  public static void getUrl (){
-		  
-		  baseUrl = "https://app.touchreading.pk/";
-		  dashboardUrl = "https://app.touchreading.pk/";
-		  newBook = "https://app.touchreading.pk/touch_books/new";
-		  
+	  public static String getBaseUrl (){
+		  return baseUrl;
 	  }
+	
+	  
+	  // Get DashboardUrl
+	  public static String getDashboardUrl (){
+		  
+		  return dashboardUrl;
+	  }
+	
+	  	  
+	  // Get newBookUrl
+	  public static String getNewBookUrl (){	
+		  return newBook;
+	  }
+	  
+	  
 	  
 	  public static void SignUpUrl (){
 		  
@@ -37,7 +50,6 @@ public class Base {
 		
 		  String geckodriver = System.getProperty("user.dir") + "\\geckodriver.exe";
 		  System.setProperty("webdriver.gecko.driver",geckodriver);
-		  
 		  //System.setProperty("webdriver.gecko.driver","F:\\LunaWorkSpace\\TouchReading\\geckodriver.exe");
 		  
 	  }

@@ -24,7 +24,7 @@ public class Sample {
 	  public void setUp() throws Exception {
 			Base.Gecko_Driver();
 	     	driver = new FirefoxDriver();
-		    Base.getUrl();
+		    Base.getBaseUrl();
 		    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	  }
 
@@ -40,7 +40,7 @@ public class Sample {
 	  // Test 1 (Smoke Test): Verify update link is working
 	  @Test 
 	  public void VerifyCancelDeleteAction() throws Exception {
-		  	driver.get(Base.baseUrl + "/?_rdr");
+		    driver.get(Base.getBaseUrl());
 	    	LoginActions.login_function(driver);
 		    Thread.sleep(5000);
 		    BookActions.deleteSpecificBook(driver);
@@ -51,7 +51,7 @@ public class Sample {
 	  
 	  @Test 
 	  public void VerifyZCancelConfrimAction() throws Exception {
-		  driver.get(Base.baseUrl + "/?_rdr");
+		    driver.get(Base.getBaseUrl());
 		    Thread.sleep(5000);
 		    BookActions.deleteSpecificBook(driver);
 		    Thread.sleep(5000);

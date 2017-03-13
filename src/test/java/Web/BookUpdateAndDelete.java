@@ -26,7 +26,7 @@ public class BookUpdateAndDelete {
 	  public void setUp() throws Exception {
 			Base.Gecko_Driver();
 	     	driver = new FirefoxDriver();
-		    Base.getUrl();
+		    Base.getBaseUrl();
 		    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	  }
 
@@ -49,7 +49,7 @@ public class BookUpdateAndDelete {
 	  // Test 1 (Smoke Test): Verify update link is working
 	  @Test 
 	  public void VerifyBookEditLink() throws Exception {
-		  	driver.get(Base.baseUrl + "/?_rdr");
+		  	driver.get(Base.getBaseUrl());
 	    	LoginActions.login_function(driver);
 		    Thread.sleep(5000);
 		    BookActions.editSpecificBook(driver);
@@ -61,7 +61,7 @@ public class BookUpdateAndDelete {
 	  // Test 2 (Smoke Test):Verify update feature is working
 	  @Test (dependsOnMethods = {"VerifyBookEditLink"},alwaysRun = true)
 	  public void UpdateBookPositiveTest() throws Exception {
-		  	driver.get(Base.dashboardUrl);
+		  	driver.get(Base.getDashboardUrl());
 		  	BookActions.editSpecificBook(driver);
 		    //Book.cover_image(driver).clear();		    
 		    //String image1 = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\images\\images11.jpg";
@@ -83,7 +83,7 @@ public class BookUpdateAndDelete {
 	  //Test 3: Update Entire Book
 	  @Test (dependsOnMethods = {"UpdateBookPositiveTest"},alwaysRun = true)
 	  public void UpdateEntireBook() throws Exception {
-		    driver.get(Base.dashboardUrl);
+		    driver.get(Base.getDashboardUrl());
 		    BookActions.openSpecificBook(driver);
 		    Thread.sleep(2000);
 			Book.editBtn(driver).click();
@@ -121,7 +121,7 @@ public class BookUpdateAndDelete {
 	  //Test 4: Update book with any data. All the fields should empty
 	  @Test (dependsOnMethods = {"UpdateEntireBook"},alwaysRun = true)
 	  public void UpdateBookWithAllFieldEmpty() throws Exception {
-		    driver.get(Base.dashboardUrl);
+		    driver.get(Base.getDashboardUrl());
 		    BookActions.openSpecificBook(driver);
 		    Thread.sleep(2000);
 			Book.editBtn(driver).click();
@@ -193,7 +193,7 @@ public class BookUpdateAndDelete {
 	  
 	  @Test (dependsOnMethods = {"VerifyHighlightedTextIsMandatory"},alwaysRun = true)
 	  public void VerifyCancelDeleteAction() throws Exception {
-		  	driver.get(Base.baseUrl + "/?_rdr");
+		  	driver.get(Base.getBaseUrl());
 		    Thread.sleep(5000);
 		    BookActions.deleteSpecificBook(driver);
 		    Thread.sleep(5000);
@@ -207,7 +207,7 @@ public class BookUpdateAndDelete {
 	  
 	  @Test (dependsOnMethods = {"VerifyCancelDeleteAction"},alwaysRun = true)
 	  public void VerifyConfrimDeleteAction() throws Exception {
-		  	driver.get(Base.baseUrl + "/?_rdr");
+		  	driver.get(Base.getBaseUrl());
 		    Thread.sleep(5000);
 		    BookActions.deleteSpecificBook(driver);
 		    Thread.sleep(5000);

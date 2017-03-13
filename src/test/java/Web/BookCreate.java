@@ -26,8 +26,10 @@ public class BookCreate {
 	  public void setUp() throws Exception {
 		Base.Gecko_Driver();
      	driver = new FirefoxDriver();
-	    Base.getUrl();
+	    Base.getBaseUrl();
 	    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	    
+	
 	  }
 
 	  
@@ -48,7 +50,7 @@ public class BookCreate {
 	  // Test 1 (Smoke Test): Verify the link is working
 	  @Test 
 	  public void VerifyNewTouchBooklink() throws Exception {
-		  	driver.get(Base.baseUrl + "/?_rdr");
+		  	driver.get(Base.getBaseUrl());
 	    	LoginActions.login_function(driver);
 		    Thread.sleep(10000);
 		    driver.findElement(By.linkText("New Touch book")).click();
@@ -60,7 +62,7 @@ public class BookCreate {
 	  // Test 2 (Smoke Test):Verify Create book feature is working
 	  @Test (dependsOnMethods = {"VerifyNewTouchBooklink"},alwaysRun = true)
 	  public void CreateBookPositiveTest() throws Exception {
-		  	driver.get(Base.newBook);
+		  	driver.get(Base.getNewBookUrl());
 		    Book.cover_image(driver).clear();		    
 		    String image1 = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\images\\images11.jpg";
 		    Book.cover_image(driver).sendKeys(image1);
@@ -80,7 +82,7 @@ public class BookCreate {
 	  //Test 3: Create Book with least field filled
 	  @Test (dependsOnMethods = {"VerifyNewTouchBooklink"},alwaysRun = true)
 	  public void CreateBookWithLeasteFields() throws Exception {
-		  	driver.get(Base.newBook);
+		    driver.get(Base.getNewBookUrl());
 		    Book.cover_image(driver).clear();		    
 		    String image1 = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\images\\images11.jpg";
 		    Book.cover_image(driver).sendKeys(image1);
@@ -101,7 +103,7 @@ public class BookCreate {
 	  //Test 4: Create book with all the fields.
 	  @Test (dependsOnMethods = {"VerifyNewTouchBooklink"},alwaysRun = true)
 	  public void CreateBookWithAllFields() throws Exception {
-		  	driver.get(Base.newBook);
+		    driver.get(Base.getNewBookUrl());
 		    Book.cover_image(driver).clear();
 		    String image1 = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\images\\images11.jpg";
 		    Book.cover_image(driver).sendKeys(image1);
@@ -129,7 +131,7 @@ public class BookCreate {
 	  //Test 4: Create book without any data. All the fields should empty
 	  @Test (dependsOnMethods = {"VerifyNewTouchBooklink"},alwaysRun = true)
 	  public void CreateBookWithoutData() throws Exception {
-		  	driver.get(Base.newBook);
+		    driver.get(Base.getNewBookUrl());
 		    Book.create_book(driver).click();
 	   
 	   }
@@ -139,7 +141,7 @@ public class BookCreate {
 	  //Test 5: Verify Book title is mandatory filed
 	  @Test (dependsOnMethods = {"CreateBookWithAllFields"},alwaysRun = true)
 	  public void CheckBookTitleIsMandatory() throws Exception {
-		  	driver.get(Base.newBook);
+		    driver.get(Base.getNewBookUrl());
 		    Book.cover_image(driver).clear();
 		    String image1 = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\images\\banner4.png";
 		    Book.cover_image(driver).sendKeys(image1);
@@ -164,7 +166,7 @@ public class BookCreate {
 	  //Test 6: Verify Book cover image is a mandatory filed
 	  @Test (dependsOnMethods = {"CreateBookWithAllFields"},alwaysRun = true)
 	  public void CheckCoverImageIsMandatory() throws Exception {
-		  	driver.get(Base.newBook);
+		  	driver.get(Base.getNewBookUrl());
 		    new Select (Book.Category(driver)).selectByVisibleText("Authors");
 		    Book.author(driver).clear();
 		    Book.author(driver).sendKeys("Arkhitech");
@@ -186,7 +188,7 @@ public class BookCreate {
 	  //Test 7: Verify Book cover image is a mandatory filed
 	  @Test (dependsOnMethods = {"CreateBookWithAllFields"},alwaysRun = true)
 	  public void CheckHighlightedTextIsMandatory() throws Exception {
-		  	driver.get(Base.newBook);
+		    driver.get(Base.getNewBookUrl());
 		    Book.cover_image(driver).clear();
 		    String image1 = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\images\\banner4.png";
 		    Book.cover_image(driver).sendKeys(image1);

@@ -20,7 +20,7 @@ public class CategoryAPI {
 								param("api_user[email]",email ).
 								param("api_user[token]",token ).
 								when().
-								get("http://staging.touchreading.pk/api/categories");
+								get("http://app.touchreading.pk/api/categories");
 						System.out.println(resp.getStatusCode());
 						System.out.println(resp.asString());
 						Assert.assertEquals(resp.getStatusCode(), 200);
